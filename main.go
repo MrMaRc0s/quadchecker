@@ -27,11 +27,11 @@ func main() {
 
 		if quadName == "build" {
 			commands := []string{
-				"go build -o quadA main.go", "chmod +x quadA",
-				"go build -o quadB main.go", "chmod +x quadB",
-				"go build -o quadC main.go", "chmod +x quadC",
-				"go build -o quadD main.go", "chmod +x quadD",
-				"go build -o quadE main.go", "chmod +x quadE",
+				"go build -o quadA main.go",
+				"go build -o quadB main.go",
+				"go build -o quadC main.go",
+				"go build -o quadD main.go",
+				"go build -o quadE main.go",
 				"go build -o quadchecker main.go",
 			}
 
