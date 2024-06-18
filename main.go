@@ -9,123 +9,9 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+
+	quad "github.com/MrMaRc0s/quad"
 )
-
-func QuadA(x, y int) {
-	if x <= 0 || y <= 0 {
-		return
-	}
-	for i := 0; i < y; i++ {
-		for j := 0; j < x; j++ {
-			if (i == 0 || i == y-1) && (j == 0 || j == x-1) {
-				// Corners
-				fmt.Print("o")
-			} else if i == 0 || i == y-1 {
-				fmt.Print("-")
-			} else if j == 0 || j == x-1 {
-				fmt.Print("|")
-			} else {
-				fmt.Print(" ")
-			}
-		}
-		fmt.Println()
-	}
-}
-
-func QuadB(x, y int) {
-	if x <= 0 || y <= 0 {
-		return
-	}
-	for i := 0; i < y; i++ {
-		for j := 0; j < x; j++ {
-			if (i == 0 && j == 0) || (i == y-1 && j == x-1) {
-				fmt.Print("/")
-			} else if (i == 0 && j == x-1) || (i == y-1 && j == 0) {
-				fmt.Print("\\")
-			} else if i == 0 || i == y-1 || j == 0 || j == x-1 {
-				fmt.Print("*")
-			} else {
-				fmt.Print(" ")
-			}
-		}
-		fmt.Println()
-	}
-}
-
-func QuadC(x, y int) {
-	if x <= 0 || y <= 0 {
-		return
-	}
-	for i := 0; i < y; i++ {
-		for j := 0; j < x; j++ {
-			if i == 0 && (j == 0 || j == x-1) {
-				fmt.Print("A")
-			} else if i == y-1 && (j == 0 || j == x-1) {
-				fmt.Print("C")
-			} else if i == 0 || i == y-1 {
-				fmt.Print("B")
-			} else if j == 0 || j == x-1 {
-				fmt.Print("B")
-			} else {
-				fmt.Print(" ")
-			}
-		}
-		fmt.Println()
-	}
-}
-
-func QuadD(x, y int) {
-	if x <= 0 || y <= 0 {
-		return
-	}
-
-	for i := 0; i < y; i++ {
-		for j := 0; j < x; j++ {
-			if i == 0 && j == 0 {
-				fmt.Print("A")
-			} else if i == 0 && j == x-1 {
-				fmt.Print("C")
-			} else if i == y-1 && j == 0 {
-				fmt.Print("A")
-			} else if i == y-1 && j == x-1 {
-				fmt.Print("C")
-			} else if i == 0 || i == y-1 {
-				fmt.Print("B")
-			} else if j == 0 || j == x-1 {
-				fmt.Print("B")
-			} else {
-				fmt.Print(" ")
-			}
-		}
-		fmt.Println()
-	}
-}
-
-func QuadE(x, y int) {
-	if x <= 0 || y <= 0 {
-		return
-	}
-	for i := 0; i < y; i++ {
-		for j := 0; j < x; j++ {
-			if i == 0 && j == 0 {
-				fmt.Print("A")
-			} else if i == 0 && j == x-1 {
-				fmt.Print("C")
-			} else if i == y-1 && j == 0 {
-				fmt.Print("C")
-			} else if i == y-1 && j == x-1 {
-				fmt.Print("A")
-			} else if i == 0 || i == y-1 {
-				fmt.Print("B")
-			} else if j == 0 || j == x-1 {
-				fmt.Print("B")
-			} else {
-				fmt.Print(" ")
-			}
-		}
-		fmt.Println()
-	}
-}
 
 func runCommand(cmd string) error {
 	parts := strings.Split(cmd, " ")
@@ -163,15 +49,15 @@ func main() {
 			height, _ := strconv.Atoi(os.Args[3])
 			switch quadName {
 			case "quadA":
-				QuadA(width, height)
+				quad.QuadA(width, height)
 			case "quadB":
-				QuadB(width, height)
+				quad.QuadB(width, height)
 			case "quadC":
-				QuadC(width, height)
+				quad.QuadC(width, height)
 			case "quadD":
-				QuadD(width, height)
+				quad.QuadD(width, height)
 			case "quadE":
-				QuadE(width, height)
+				quad.QuadE(width, height)
 			default:
 				fmt.Println("Unknown quad name")
 			}
@@ -186,15 +72,15 @@ func main() {
 		height, _ := strconv.Atoi(os.Args[2])
 		switch executableName {
 		case "quadA":
-			QuadA(width, height)
+			quad.QuadA(width, height)
 		case "quadB":
-			QuadB(width, height)
+			quad.QuadB(width, height)
 		case "quadC":
-			QuadC(width, height)
+			quad.QuadC(width, height)
 		case "quadD":
-			QuadD(width, height)
+			quad.QuadD(width, height)
 		case "quadE":
-			QuadE(width, height)
+			quad.QuadE(width, height)
 		default:
 			fmt.Println("Unknown quad name")
 		}
